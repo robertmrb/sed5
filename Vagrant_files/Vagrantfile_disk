@@ -1,0 +1,78 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "ubuntu/jammy64"
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  config.vm.network "private_network", ip: "192.168.56.11"
+
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    # vb.gui = true
+  
+    # Customize the amount of memory on the VM:
+    vb.memory = "4096"
+    # Customize the amount of CPU on the VM:
+    vb.cpus = "2"
+    # Customize the number of attached disks to the VM:
+    unless FileTest.exist?('./disk_two.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_two.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', './disk_two.vmdk']
+    unless FileTest.exist?('./disk_three.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_three.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', './disk_three.vmdk']
+    unless FileTest.exist?('./disk_four.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_four.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 4, '--device', 0, '--type', 'hdd', '--medium', './disk_four.vmdk']
+    unless FileTest.exist?('./disk_five.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_five.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 5, '--device', 0, '--type', 'hdd', '--medium', './disk_five.vmdk']
+    unless FileTest.exist?('./disk_six.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_six.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 6, '--device', 0, '--type', 'hdd', '--medium', './disk_six.vmdk']
+    unless FileTest.exist?('./disk_seven.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_seven.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 7, '--device', 0, '--type', 'hdd', '--medium', './disk_seven.vmdk']
+    unless FileTest.exist?('./disk_eight.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_eight.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 8, '--device', 0, '--type', 'hdd', '--medium', './disk_eight.vmdk']
+    unless FileTest.exist?('./disk_nine.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_nine.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 9, '--device', 0, '--type', 'hdd', '--medium', './disk_nine.vmdk']
+    unless FileTest.exist?('./disk_ten.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_ten.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 10, '--device', 0, '--type', 'hdd', '--medium', './disk_ten.vmdk']
+    unless FileTest.exist?('./disk_eleven.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_eleven.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 11, '--device', 0, '--type', 'hdd', '--medium', './disk_eleven.vmdk']
+    unless FileTest.exist?('./disk_twelve.vmdk')
+      vb.customize ['createmedium', 'disk', '--filename', './disk_twelve.vmdk', '--format', 'vmdk', '--size', 5 * 1024]
+    end
+    vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 12, '--device', 0, '--type', 'hdd', '--medium', './disk_twelve.vmdk']
+  end
+  config.vm.provision "shell", inline: <<-SHELL
+    apt update && apt upgrade -y
+  SHELL
+end

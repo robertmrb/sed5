@@ -1,0 +1,32 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "ubuntu/jammy64"
+
+  config.vm.define "nginx" do |n|
+    n.vm.hostname = "nginx"
+    n.vm.network "private_network", ip: "192.168.56.11"
+    n.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+      vb.cpus = "2"
+    end
+    n.vm.provision "shell", inline: <<-SHELL
+      apt update && apt upgrade -y
+    SHELL
+  end
+  config.vm.define "apache2" do |a2|
+    a2.vm.hostname = "apache2"
+    a2.vm.network "private_network", ip: "192.168.56.12"
+    a2.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+      vb.cpus = "2"
+    end
+    a2.vm.provision "shell", inline: <<-SHELL
+      apt update && apt upgrade -y
+    SHELL
+  end
+
+ 
+end
