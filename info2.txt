@@ -1,0 +1,7 @@
+git@git:~$ ls -la .ssh/
+total 20
+drwx------ 2 git git 4096 Dec 20 09:26 .
+drwxr-x--- 3 git git 4096 Dec 20 09:36 ..
+-rw------- 1 git git  729 Dec 20 09:26 authorized_keys
+-rw------- 1 git git 3357 Dec 20 09:09 id_rsa
+-rw------- 1 git git  729 Dec 20 09:09 id_rsa.pub

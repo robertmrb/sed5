@@ -1,0 +1,31 @@
+d-r---         10/6/2022   9:56 AM                Pictures
+d-----         5/19/2022   1:08 PM                Postman
+d-----         2/23/2022   2:01 PM                PycharmProjects
+d-r---         10/6/2022   9:56 AM                Saved Games
+d-r---         10/6/2022   9:56 AM                Searches
+d-----         9/13/2022   6:54 PM                Simplilearn
+d-----        10/25/2022   8:25 PM                vagrant
+d-r---         10/6/2022   9:56 AM                Videos
+d-----        12/19/2022   4:36 PM                VirtualBox VMs
+-a----        12/20/2022   1:24 PM           1080 .bash_history
+-a----        12/19/2022   3:54 PM             72 .gitconfig
+-a----        12/19/2022   3:11 PM             20 .lesshst
+-a----        12/20/2022   1:23 PM           2494 .viminfo
+
+
+PS C:\Users\pc> cd .\Documents\
+PS C:\Users\pc\Documents> ls
+
+
+    Directory: C:\Users\pc\Documents
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          9/8/2022   6:51 AM                Vagrant
+d-----        12/16/2022   6:33 PM                vagrant_disk
+d-----        12/20/2022  11:51 AM                vagrant_git
+d-----        10/27/2022   5:54 PM                vagrant_u
+d-----         11/2/2022   5:53 PM                vagrant_u_2
+d-----        11/21/2022   5:04 PM                vagrant_webservers
+d-----          5/3/2022   5:52 PM                Zoom
