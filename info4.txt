@@ -1,4 +1,0 @@
-PS C:\Users\pc\Documents> cd .\git_repo\
-PS C:\Users\pc\Documents\git_repo> ls
-PS C:\Users\pc\Documents\git_repo> dir
-PS C:\Users\pc\Documents\git_repo>  
